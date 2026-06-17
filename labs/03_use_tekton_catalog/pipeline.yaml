@@ -3,12 +3,17 @@ kind: Pipeline
 metadata:  
   name: cd-pipeline
 spec:
+  workspaces:
+    - name: pipeline-workspace
   params:
     - name: repo-url
     - name: branch
       default: "master"
   tasks:
     - name: clone
+      workspaces:
+        - name: output
+          workspace: pipeline-workspace
       taskRef:
         name: checkout
       params:
