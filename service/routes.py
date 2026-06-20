@@ -21,6 +21,11 @@ def ready():
     """Readiness Status"""
     return jsonify(dict(status="OK")), status.HTTP_200_OK
 
+@app.route("/live")
+def live():
+    """Liveliness Status"""
+    return jsonify(dict(status="OK")), status.HTTP_200_OK
+
 ############################################################
 # Index page
 ############################################################

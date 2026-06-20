@@ -20,7 +20,7 @@ jobs:
               - 'service/**'
       
       - name: Run black on detected changes folder
-        if steps.changed_detection.outputs.backend_changes == 'true'
+        if: steps.changed_detection.outputs.backend_changes == 'true'
         run: |
           pip install black
           black service
