@@ -17,6 +17,11 @@ class CounterTest(TestCase):
     """ REST API Server Tests """
 
     @classmethod
+    def setUpClass1(cls):
+        """ This runs once before the entire test suite """
+        app.testing = True
+
+    @classmethod
     def setUpClass(cls):
         """ This runs once before the entire test suite """
         app.testing = True
