@@ -1,0 +1,26 @@
+name: CI for monorepo with detected folder changes
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  detect_changes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check changed folder 
+        id: changed_detection
+        uses: dorny/paths-filter@v3
+        with:
+          filters: |
+            backend_changes:
+              - 'service/**'
+      
+      - name: Run black on detected changes folder
+        if steps.changed_detection.outputs.backend_changes == 'true'
+        run: |
+          pip install black
+          black service
