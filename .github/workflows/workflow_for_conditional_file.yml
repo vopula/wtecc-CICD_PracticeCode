@@ -1,0 +1,22 @@
+name: Workflow for running CI conditionally based on file changes
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "service/**/*.py"
+
+jobs:
+  CodeLinting:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          pip install black
+
+      - name: Run Black
+        run: |
+          black service
