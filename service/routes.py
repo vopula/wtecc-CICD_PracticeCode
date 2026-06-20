@@ -16,6 +16,10 @@ def health():
     """Health Status"""
     return jsonify(dict(status="OK")), status.HTTP_200_OK
 
+@app.route("/ready")
+def ready():
+    """Readiness Status"""
+    return jsonify(dict(status="OK")), status.HTTP_200_OK
 
 ############################################################
 # Index page
