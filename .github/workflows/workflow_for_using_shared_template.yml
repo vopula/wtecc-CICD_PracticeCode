@@ -1,0 +1,11 @@
+# name: Call CI Shared Template
+
+# on:
+#   push:
+#     branches: ["main"]
+
+# jobs:
+#   call_shared_template:
+#     uses: vopula/wtecc-CICD_PracticeCode/.github/workflows/shared_template_ci.yml@main
+#     with:
+#       workflow_name: "Call CI Shared Template"
